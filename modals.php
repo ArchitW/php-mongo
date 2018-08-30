@@ -215,7 +215,11 @@ if(isset($_POST['register'])){
 
   </div>
 </div>
+<?php
+//Adding Books to Database
 
+
+?>
 
 
 <!-- ORDERS Modal -->

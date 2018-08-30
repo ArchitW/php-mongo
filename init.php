@@ -16,6 +16,7 @@ session_start();
 
 require './vendor/autoload.php';
 include './class/users.php';
+include './class/books.php';
 
 //Connection to server
 $connection = new MongoDB\Client;
@@ -23,9 +24,10 @@ $connection = new MongoDB\Client;
 $db = $connection->bookstore;
 //connection to collection (table)
 $collection_users = $db->users;
+$collection_books = $db->books;
 //Objects
 $userClass = new Users($collection_users);
-
+$booksClass= new Books($collection_books);
 //var_dump($userClass);
 //exit;
 
