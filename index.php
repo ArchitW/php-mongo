@@ -23,6 +23,7 @@
 
 $userData = $userClass->userData($_SESSION['user_id']);
 
+
 }
 
 
@@ -39,7 +40,10 @@ $userData = $userClass->userData($_SESSION['user_id']);
     <ul class="nav navbar-nav">
       <li class="active"><a href="#">Home</a></li>
 
-      <li><a href="#">Admin Panel</a></li>
+      <?php  if(isset($_SESSION['admin']) && $_SESSION['admin'] == "yes"){
+
+
+       ?><li><a href="#">Admin Panel</a></li> <?php }?>
       <li><a data-toggle="modal" data-target="#registerModal" href="#">Register</a></li>
       <li><a data-toggle="modal" data-target="#loginModal" id="loginModal" href="#"> Login </a></li>
       <li><a href="#" ><span id="cart" class="glyphicon glyphicon-shopping-cart my-cart-icon"><span class="badge badge-notify my-cart-badge" id="shopcart"> </span>

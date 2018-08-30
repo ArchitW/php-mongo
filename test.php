@@ -18,8 +18,8 @@ foreach ($document as $value){
 }
 
 // Use projection + Limit
-$document = $collection_users->find([],['limit'=>2,
-    'projection'=>['_id'=>0,
+$document = $collection_users->find([],['limit'=> 2,
+    'projection'=>['_id'=> 0,
         'admin'=> 0 ] ] );
 foreach ($document as $value){
      var_dump($value);

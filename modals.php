@@ -41,13 +41,13 @@
 if(isset($_POST['login']) && !isset($_POST['admin'])){
     $name = $userClass->checkInput($_POST['username']);
     $password = $userClass->checkInput($_POST['password']);
-    $isAdmin = $_POST['admin'];
+
 
     if(empty($name) || empty($password)){
         $error = true;
     }
     else {
-        $check = $userClass->logIn($name, $password, $isAdmin);
+        $check = $userClass->logIn($name, $password);
         //var_dump($check);
     }
 

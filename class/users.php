@@ -55,18 +55,18 @@ class Users
         return $userFields;
     }
 
-    public function logIn($name , $password, $flag){
+    public function logIn($name , $password){
 
-
-        var_dump($flag);
-        exit;
-
-
-     $document = $this->collection_users->findOne(['name' => $name , 'password' => $password]);
+     $document = $this->collection_users->findOne(['name' => $name , 'password' => $password],
+         ['projection'=> ['_id'=> 1,'admin'=> 1 ]]
+         );
 
      if(!empty($document->_id)){
-         $_SESSION['user_id'] = $document->_id;
-     }else{
+
+             $_SESSION['user_id']=$document->_id;
+             $_SESSION['admin'] = $document->admin;
+     }
+     else{
          return false;
      }
 
