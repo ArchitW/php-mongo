@@ -26,3 +26,6 @@ foreach ($document as $value){
 }
 
 var_dump($document);
+
+//time stamp conversion from unix TT to calender format
+echo date('Y-m-d', 1535630380);

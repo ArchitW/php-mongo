@@ -32,15 +32,16 @@ class Users
     }
 
     public function register($name, $password, $email){
-        $date = new DateTime();
-        echo $date->getTimestamp();
+
         //insert function
         $document = $this->collection_users->insertOne([
             'name'=>$name,
             'email' => $email,
             'password' => $password,
             'admin' => 'no',
-            'date_register' => new MongoDB\BSON\UTCDateTime($date)
+            'date_register' => new MongoDB\BSON\UTCDateTime(),
+            //Unix time Stamp
+            'unix_timestamp' => (new MongoDB\BSON\ObjectId())->getTimestamp()
             ]);
         //setting us session variable to last inserted id
         $_SESSION['user_id'] = $document->getInsertedId();
